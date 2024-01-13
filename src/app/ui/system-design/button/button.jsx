@@ -1,5 +1,6 @@
 "use client"
 import clsx from "clsx"
+import { Spinner } from "../spinner/Spinner"
 
 
 export const Button = ({ size = "medium", variant = "accent", icon, iconTheme = "accent", iconPosition = "right", disabled, isLoading, children }) => {
@@ -58,24 +59,38 @@ export const Button = ({ size = "medium", variant = "accent", icon, iconTheme = 
                 variantStyles,
                 sizeStyles,
                 icoSize,
-                ""
+                isLoading && "cursor-wait",
+                "relative"
             )}
             onClick={() => console.log("clicked")}
             disabled={disabled}
         >
-            {icon && variant === "ico" ? (
-                <icon.icon size={icoSize} />
-            ) : (
-                <div className={clsx(icon && "flex items-center gap-1")}>
-                    {icon && iconPosition === "left" && (
-                        <icon.icon size={icoSize} />
-                    )}
-                    {children}
-                    {icon && iconPosition === "right" && (
-                        <icon.icon size={icoSize} />
-                    )}
-                </div>
-            )}
+
+
+            {
+                isLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        {
+                            variant === "accent" || variant === "ico" ? (<Spinner size="small" variant="white" />) : (<Spinner size="small" />)
+                        }
+                    </div>
+                )
+            }
+            <div className={clsx(isLoading && "invisible")}>
+                {icon && variant === "ico" ? (
+                    <icon.icon size={icoSize} />
+                ) : (
+                    <div className={clsx(icon && "flex items-center gap-1")}>
+                        {icon && iconPosition === "left" && (
+                            <icon.icon size={icoSize} />
+                        )}
+                        {children}
+                        {icon && iconPosition === "right" && (
+                            <icon.icon size={icoSize} />
+                        )}
+                    </div>
+                )}
+            </div>
         </button>
     )
 }

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Typography } from './ui/system-design/Typography/typography'
 import { Button } from './ui/system-design/button/button'
 import { BiAdjust, BiAlarm } from "react-icons/bi";
+import { Spinner } from './ui/system-design/spinner/Spinner';
 
 export default function Home() {
   return (
@@ -19,12 +20,14 @@ export default function Home() {
       <Typography theme={"gray"} variant={"caption4"} Component={"div"}>
         We code
       </Typography>
-      <Button>button</Button>
-      <Button icon={{ icon: BiAlarm }} iconPosition='left' size='small' variant='secondary'>button</Button>
-      <Button variant='outline'>button</Button>
-      <Button size='small' iconTheme={"gray"} variant='ico' icon={{ icon: BiAdjust }} />
+      <Button size='small' isLoading={true}>button</Button>
+      <Button isLoading={true} icon={{ icon: BiAlarm }} iconPosition='left' size='small' variant='secondary'>button</Button>
+      <Button isLoading={true} size='small' variant='outline'>button</Button>
+      <Button size='small' iconTheme={"gray"} isLoading={true} variant='ico' icon={{ icon: BiAdjust }} />
 
-
+      <Spinner size='small' />
+      <Spinner size='medium' />
+      <Spinner size='large' />
 
     </main>
   )
