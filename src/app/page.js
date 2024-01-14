@@ -4,6 +4,7 @@ import { Typography } from './ui/system-design/Typography/typography'
 import { Button } from './ui/system-design/button/button'
 import { BiAdjust, BiAlarm } from "react-icons/bi";
 import { Spinner } from './ui/system-design/spinner/Spinner';
+import { Logo } from './ui/system-design/logo/Logo';
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <Spinner size='small' />
       <Spinner size='medium' />
       <Spinner size='large' />
+      <Logo size='small' />
 
     </main>
   )
