@@ -1,6 +1,5 @@
 import clsx from "clsx"
 
-
 export const Typography = ({ variant, children, Component: Component, theme, weight, className }) => {
 
     let variantStyles = ""
